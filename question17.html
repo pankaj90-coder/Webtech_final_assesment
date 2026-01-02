@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discount Calculator</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #e0ece4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .widget { background: #ffffff; padding: 2.5rem; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); width: 320px; text-align: center; border-top: 5px solid #ff6b6b; }
+        h2 { color: #444; }
+        input { width: 80%; padding: 12px; margin: 10px 0; border: 2px solid #eee; border-radius: 8px; text-align: center; font-size: 1rem; }
+        button { background: #ff6b6b; color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: bold; margin-top: 10px; transition: transform 0.2s; }
+        button:hover { transform: scale(1.05); }
+        .output-box { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: left; }
+        .output-box p { margin: 5px 0; font-size: 0.9rem; color: #555; }
+        .final-price { font-size: 1.3rem; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="widget">
+    <h2>🛍️ Discount Calc</h2>
+    <input type="number" id="amount" placeholder="Purchase Amount ($)">
+    <button onclick="calcDiscount()">Calculate Savings</button>
+    
+    <div class="output-box">
+        <p>Original: <span id="origDisplay">-</span></p>
+        <p>Discount: <span id="discDisplay">-</span></p>
+        <hr>
+        <p class="final-price">Total: <span id="totalDisplay">-</span></p>
+    </div>
+</div>
+
+<script>
+    function calcDiscount() {
+        let price = parseFloat(document.getElementById('amount').value);
+        let discount = 0;
+
+        if (!price) return;
+
+        if (price >= 100) discount = 20;
+        else if (price >= 50) discount = 10;
+        else discount = 0;
+
+        let total = price - discount;
+
+        document.getElementById('origDisplay').innerText = "$" + price;
+        document.getElementById('discDisplay').innerText = "-$" + discount;
+        document.getElementById('totalDisplay').innerText = "$" + total;
+    }
+</script>
+
+</body>
+</html>

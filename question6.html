@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Number Guessing Game</h2>
+    <script>
+        function guessNumber() {
+            const secret = 7; // Fixed secret number
+            let guess = parseInt(prompt("Guess the number (0-10):"));
+            
+            if (guess === secret) {
+                alert("Correct! You win.");
+            } else if (guess > secret) {
+                alert("Too high! Try again.");
+            } else {
+                alert("Too low! Try again.");
+            }
+        }
+        guessNumber();
+    </script>
+</body>
+</html>

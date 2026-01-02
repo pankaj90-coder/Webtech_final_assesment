@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Finder</title>
+    <style>
+        body { font-family: Helvetica, Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .glass-panel { background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 15px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); width: 300px; text-align: center; }
+        .input-group { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; text-align: center; }
+        button { width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #5a67d8; }
+        #signResult { margin-top: 20px; font-size: 4rem; height: 80px; line-height: 80px; }
+    </style>
+</head>
+<body>
+
+<div class="glass-panel">
+    <h3>Product Sign Finder</h3>
+    <div class="input-group">
+        <input type="number" id="n1" placeholder="#">
+        <input type="number" id="n2" placeholder="#">
+        <input type="number" id="n3" placeholder="#">
+    </div>
+    <button onclick="findSign()">Get Sign</button>
+    <div id="signResult">?</div>
+</div>
+
+<script>
+    function findSign() {
+        let n1 = parseFloat(document.getElementById('n1').value);
+        let n2 = parseFloat(document.getElementById('n2').value);
+        let n3 = parseFloat(document.getElementById('n3').value);
+        
+        if (isNaN(n1) || isNaN(n2) || isNaN(n3)) return;
+
+        let product = n1 * n2 * n3;
+        let display = document.getElementById('signResult');
+
+        if (product > 0) {
+            display.innerText = "+";
+            display.style.color = "#28a745";
+        } else if (product < 0) {
+            display.innerText = "-";
+            display.style.color = "#dc3545";
+        } else {
+            display.innerText = "0";
+            display.style.color = "#333";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Closest to 100</h2>
+    <script>
+        function closestTo100() {
+            let x = parseInt(prompt("Enter number 1:"));
+            let y = parseInt(prompt("Enter number 2:"));
+            
+            let val1 = Math.abs(100 - x);
+            let val2 = Math.abs(100 - y);
+            
+            if (val1 < val2) alert(x + " is closer to 100");
+            else if (val2 < val1) alert(y + " is closer to 100");
+            else alert("Both are equally close");
+        }
+        closestTo100();
+    </script>
+</body>
+</html>

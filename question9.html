@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Factorial</h2>
+    <script>
+        function factorial() {
+            let n = parseInt(prompt("Enter number for factorial:"));
+            let fact = 1;
+            for (let i = 1; i <= n; i++) {
+                fact *= i;
+            }
+            alert("Factorial of " + n + " is " + fact);
+        }
+        factorial();
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Validator</title>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background: #2c3e50; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .panel { background: #34495e; padding: 2.5rem; border-radius: 8px; color: white; width: 350px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+        h2 { border-bottom: 2px solid #1abc9c; padding-bottom: 10px; display: inline-block; }
+        input { background: #ecf0f1; border: none; padding: 12px; width: 60%; border-radius: 4px; color: #2c3e50; font-weight: bold; font-size: 1.1rem; text-align: center; }
+        button { background: #1abc9c; color: white; border: none; padding: 12px 20px; margin-left: 10px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        button:hover { background: #16a085; }
+        .status-light { margin-top: 30px; padding: 15px; border-radius: 6px; font-weight: bold; display: none; }
+        .prime { background: rgba(46, 204, 113, 0.2); color: #2ecc71; border: 1px solid #2ecc71; }
+        .not-prime { background: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; }
+    </style>
+</head>
+<body>
+
+<div class="panel">
+    <h2>Prime Validator</h2>
+    <div style="margin-top: 20px;">
+        <input type="number" id="primeInput" placeholder="Number">
+        <button onclick="checkPrime()">Check</button>
+    </div>
+    <div id="statusBox" class="status-light"></div>
+</div>
+
+<script>
+    function checkPrime() {
+        let num = parseInt(document.getElementById('primeInput').value);
+        let statusBox = document.getElementById('statusBox');
+        let isPrime = true;
+
+        if (isNaN(num)) return;
+
+        if (num <= 1) isPrime = false;
+        else {
+            let i = 2;
+            while (i * i <= num) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+                i++;
+            }
+        }
+
+        statusBox.style.display = "block";
+        if (isPrime) {
+            statusBox.className = "status-light prime";
+            statusBox.innerText = num + " is a Prime Number";
+        } else {
+            statusBox.className = "status-light not-prime";
+            statusBox.innerText = num + " is NOT a Prime Number";
+        }
+    }
+</script>
+
+</body>
+</html>

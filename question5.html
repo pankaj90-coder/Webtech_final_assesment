@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>BMI Calculator</h2>
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(prompt("Enter weight in kg:"));
+            let height = parseFloat(prompt("Enter height in meters:"));
+            let bmi = weight / (height * height);
+            
+            let category;
+            if (bmi < 18.5) category = "Underweight";
+            else if (bmi < 24.9) category = "Normal weight";
+            else if (bmi < 29.9) category = "Overweight";
+            else category = "Obese";
+
+            alert("BMI: " + bmi.toFixed(2) + " (" + category + ")");
+        }
+        calculateBMI();
+    </script>
+</body>
+</html>

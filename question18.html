@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Duck Number Detector</title>
+    <style>
+        body { font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; background: #fff3cd; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: #ffc107; padding: 3px; border-radius: 20px; box-shadow: 0 10px 0 #d39e00; }
+        .inner { background: white; padding: 2rem; border-radius: 17px; width: 280px; text-align: center; }
+        h2 { margin-top: 0; color: #d39e00; }
+        input { padding: 10px; border: 2px solid #ffeeba; border-radius: 10px; width: 70%; font-size: 1.1rem; text-align: center; outline: none; }
+        button { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 10px; margin-top: 15px; cursor: pointer; font-size: 1rem; font-weight: bold; box-shadow: 0 4px 0 #1e7e34; }
+        button:active { transform: translateY(4px); box-shadow: none; }
+        #duckResult { margin-top: 20px; font-size: 1.2rem; font-weight: bold; min-height: 24px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="inner">
+        <h2>🦆 Duck Check</h2>
+        <input type="text" id="duckInput" placeholder="Enter Number">
+        <button onclick="checkDuck()">Is it a Duck?</button>
+        <div id="duckResult"></div>
+    </div>
+</div>
+
+<script>
+    function checkDuck() {
+        let numStr = document.getElementById('duckInput').value;
+        let resultDiv = document.getElementById('duckResult');
+        
+        // A Duck number must have '0' but not start with '0'
+        if (numStr.length > 0 && numStr.charAt(0) !== '0' && numStr.includes('0')) {
+            resultDiv.innerText = "Quack! It's a Duck Number! 🦆";
+            resultDiv.style.color = "#d39e00";
+        } else {
+            resultDiv.innerText = "Nope. Just a normal number.";
+            resultDiv.style.color = "#6c757d";
+        }
+    }
+</script>
+
+</body>
+</html>
